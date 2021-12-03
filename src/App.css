@@ -24,4 +24,20 @@
 #clear {
     grid-column: 1 / 5;
     grid-row: 1;
-  }
+    background-color: #980000;
+    border-color: #980000;
+}
+
+.Calc-Grid .theme-button {
+    border-radius: 50%;
+    background: #206058;
+    border-color: #206058;
+    color: #F8F8F8;
+}
+
+.Calc-Grid .Calc-Btn {
+    background-color: #33998d;
+    border-color: #33998d;
+    border-radius: 50%;
+}
+
