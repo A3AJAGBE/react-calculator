@@ -32,22 +32,22 @@ const App = () => {
 				<Button size="lg" className="theme-button" id="seven" name="7" onClick={handleClick}>7</Button>
 				<Button size="lg" className="theme-button" id="eight" name="8" onClick={handleClick}>8</Button>
 				<Button size="lg" className="theme-button" id="nine" name="9" onClick={handleClick}>9</Button>
-				<Button size="lg" className="Calc-Btn" id="divide" name="/" onClick={handleClick}>/</Button>
+				<Button size="lg" className="Calc-Btn" id="divide" name="/" onClick={handleClick}>&divide;</Button>
 
 				<Button size="lg" className="theme-button" id="four" name="4" onClick={handleClick}>4</Button>
 				<Button size="lg" className="theme-button" id="five" name="5" onClick={handleClick}>5</Button>
 				<Button size="lg" className="theme-button" id="six" name="6" onClick={handleClick}>6</Button>
-				<Button size="lg" className="Calc-Btn" id="multiply" name="*" onClick={handleClick}>*</Button>
+				<Button size="lg" className="Calc-Btn" id="multiply" name="*" onClick={handleClick}>&times;</Button>
 
 				<Button size="lg" className="theme-button" id="one" name="1" onClick={handleClick}>1</Button>
 				<Button size="lg" className="theme-button" id="two" name="2" onClick={handleClick}>2</Button>
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={handleClick}>3</Button>
-				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={handleClick}>-</Button>
+				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={handleClick}>&minus;</Button>
 
-				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={handleClick}>.</Button>
+				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={handleClick}>&sdot;</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={handleClick}>0</Button>		
-				<Button size="lg" className="Calc-Btn" id="equals" name="=" onClick={handleClick}>=</Button>
-				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={handleClick}>+</Button>
+				<Button size="lg" className="Calc-Btn" id="equals" name="=" onClick={handleClick}>&#61;</Button>
+				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={handleClick}>&#43;</Button>
 
 			</Card.Footer>
 		</Card>
