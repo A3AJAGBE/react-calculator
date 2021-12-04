@@ -28,6 +28,10 @@
     border-color: #980000;
 }
 
+#clear:hover {
+    background-color: #B80000;
+}
+
 .Calc-Grid .theme-button {
     border-radius: 50%;
     background: #206058;
@@ -41,3 +45,12 @@
     border-radius: 50%;
 }
 
+.Calc-Grid .Calc-Btn:hover {
+    border-color: #33998d;
+    background-color: #0d2623;
+}
+
+.Calc-Grid .theme-button:hover {
+    border-color: #206058;
+    background-color: #0d2623;
+}
