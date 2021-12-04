@@ -26,6 +26,7 @@
     grid-row: 1;
     background-color: #980000;
     border-color: #980000;
+    box-shadow: none;
 }
 
 #clear:hover {
@@ -45,14 +46,16 @@
     border-radius: 50%;
 }
 
-.Calc-Grid .Calc-Btn:hover {
+.Calc-Grid .Calc-Btn:hover, .Calc-Grid .Calc-Btn:focus {
     border-color: #33998d;
     background-color: #0d2623;
+    box-shadow: none;
 }
 
-.Calc-Grid .theme-button:hover {
+.Calc-Grid .theme-button:hover, .Calc-Grid .theme-button:focus {
     border-color: #206058;
     background-color: #0d2623;
+    box-shadow: none;
 }
 
 .Calc-result {

@@ -49,7 +49,7 @@ const App = () => {
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={handleClick}>3</Button>
 				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={handleClick}>&minus;</Button>
 
-				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={handleClick}>&sdot;</Button>
+				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={handleClick}>.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={handleClick}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=" onClick={handleClick}>&#61;</Button>
 				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={handleClick}>&#43;</Button>
