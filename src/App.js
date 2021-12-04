@@ -18,22 +18,27 @@ const App = () => {
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
 				<Button size="lg" className="" id="clear">AC</Button>
+
 				<Button size="lg" className="theme-button" id="seven">7</Button>
 				<Button size="lg" className="theme-button" id="eight">8</Button>
 				<Button size="lg" className="theme-button" id="nine">9</Button>
 				<Button size="lg" className="Calc-Btn" id="divide">/</Button>
+
 				<Button size="lg" className="theme-button" id="four">4</Button>
 				<Button size="lg" className="theme-button" id="five">5</Button>
 				<Button size="lg" className="theme-button" id="six">6</Button>
 				<Button size="lg" className="Calc-Btn" id="multiply">*</Button>
+
 				<Button size="lg" className="theme-button" id="one">1</Button>
 				<Button size="lg" className="theme-button" id="two">2</Button>
 				<Button size="lg" className="theme-button" id="three">3</Button>
 				<Button size="lg" className="Calc-Btn" id="subtract">-</Button>
+
 				<Button size="lg" className="Calc-Btn" id="decimal">.</Button>
 				<Button size="lg" className="theme-button" id="zero">0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals">=</Button>
 				<Button size="lg" className="Calc-Btn" id="add">+</Button>
+				
 			</Card.Footer>
 		</Card>
     </Container>
