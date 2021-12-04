@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -5,15 +6,19 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const App = () => {
+
+	const [result, setResult] = useState("");
+	const [input, setInput] = useState("0")
+
   return (
     <Container fluid id="App-Container">
       <h1>A3AJAGBE Calculator App</h1>
 	  	<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
-			<Card.Body>
-				<div className="bg-dark p-2 text-end" id="display">
-					<Card.Subtitle className="Calc-result"> 3 </Card.Subtitle>
-					<Card.Title> 1 + 2 </Card.Title>
+			<Card.Body className="p-4">
+				<div className="bg-dark text-end pt-3 px-2 pb-1" id="display">
+					<Card.Subtitle className="Calc-result"> {result} </Card.Subtitle>
+					<Card.Title> {input} </Card.Title>
 				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
@@ -38,7 +43,7 @@ const App = () => {
 				<Button size="lg" className="theme-button" id="zero">0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals">=</Button>
 				<Button size="lg" className="Calc-Btn" id="add">+</Button>
-				
+
 			</Card.Footer>
 		</Card>
     </Container>
