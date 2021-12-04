@@ -10,6 +10,11 @@ const App = () => {
 	const [result, setResult] = useState("");
 	const [input, setInput] = useState("0")
 
+	const handleClick = (e) => {
+		setInput(e.target.name);
+		setResult(result.concat(e.target.name));
+	}
+
   return (
     <Container fluid id="App-Container">
       <h1>A3AJAGBE Calculator App</h1>
@@ -22,27 +27,27 @@ const App = () => {
 				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
-				<Button size="lg" className="" id="clear">AC</Button>
+				<Button size="lg"  className="" id="clear">AC</Button>
 
-				<Button size="lg" className="theme-button" id="seven">7</Button>
-				<Button size="lg" className="theme-button" id="eight">8</Button>
-				<Button size="lg" className="theme-button" id="nine">9</Button>
-				<Button size="lg" className="Calc-Btn" id="divide">/</Button>
+				<Button size="lg" className="theme-button" id="seven" name="7" onClick={handleClick}>7</Button>
+				<Button size="lg" className="theme-button" id="eight" name="8" onClick={handleClick}>8</Button>
+				<Button size="lg" className="theme-button" id="nine" name="9" onClick={handleClick}>9</Button>
+				<Button size="lg" className="Calc-Btn" id="divide" name="/" onClick={handleClick}>/</Button>
 
-				<Button size="lg" className="theme-button" id="four">4</Button>
-				<Button size="lg" className="theme-button" id="five">5</Button>
-				<Button size="lg" className="theme-button" id="six">6</Button>
-				<Button size="lg" className="Calc-Btn" id="multiply">*</Button>
+				<Button size="lg" className="theme-button" id="four" name="4" onClick={handleClick}>4</Button>
+				<Button size="lg" className="theme-button" id="five" name="5" onClick={handleClick}>5</Button>
+				<Button size="lg" className="theme-button" id="six" name="6" onClick={handleClick}>6</Button>
+				<Button size="lg" className="Calc-Btn" id="multiply" name="*" onClick={handleClick}>*</Button>
 
-				<Button size="lg" className="theme-button" id="one">1</Button>
-				<Button size="lg" className="theme-button" id="two">2</Button>
-				<Button size="lg" className="theme-button" id="three">3</Button>
-				<Button size="lg" className="Calc-Btn" id="subtract">-</Button>
+				<Button size="lg" className="theme-button" id="one" name="1" onClick={handleClick}>1</Button>
+				<Button size="lg" className="theme-button" id="two" name="2" onClick={handleClick}>2</Button>
+				<Button size="lg" className="theme-button" id="three" name="3" onClick={handleClick}>3</Button>
+				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={handleClick}>-</Button>
 
-				<Button size="lg" className="Calc-Btn" id="decimal">.</Button>
-				<Button size="lg" className="theme-button" id="zero">0</Button>		
-				<Button size="lg" className="Calc-Btn" id="equals">=</Button>
-				<Button size="lg" className="Calc-Btn" id="add">+</Button>
+				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={handleClick}>.</Button>
+				<Button size="lg" className="theme-button" id="zero" name="0" onClick={handleClick}>0</Button>		
+				<Button size="lg" className="Calc-Btn" id="equals" name="=" onClick={handleClick}>=</Button>
+				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={handleClick}>+</Button>
 
 			</Card.Footer>
 		</Card>
