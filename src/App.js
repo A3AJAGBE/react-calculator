@@ -11,7 +11,10 @@ const App = () => {
 	  	<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
 			<Card.Body>
-				<Card.Title className="bg-dark p-4 text-end" id="display"> 0 </Card.Title>
+				<div className="bg-dark p-2 text-end" id="display">
+					<Card.Subtitle className="Calc-result"> 3 </Card.Subtitle>
+					<Card.Title> 1 + 2 </Card.Title>
+				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
 				<Button size="lg" className="" id="clear">AC</Button>
