@@ -15,6 +15,11 @@ const App = () => {
 		setResult(result.concat(e.target.name));
 	}
 
+	const clear = () => {
+		setInput("0");
+		setResult("");
+	}
+
   return (
     <Container fluid id="App-Container">
       <h1>A3AJAGBE Calculator App</h1>
@@ -27,7 +32,7 @@ const App = () => {
 				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
-				<Button size="lg"  className="" id="clear">AC</Button>
+				<Button size="lg" className="" id="clear" onClick={clear}>AC</Button>
 
 				<Button size="lg" className="theme-button" id="seven" name="7" onClick={handleClick}>7</Button>
 				<Button size="lg" className="theme-button" id="eight" name="8" onClick={handleClick}>8</Button>
