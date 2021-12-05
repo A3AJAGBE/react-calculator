@@ -10,13 +10,21 @@ const App = () => {
 	const [result, setResult] = useState("");
 	const [input, setInput] = useState("0");
 
+	const operators = ['/', '*', '+', '-', '.'];
+
 	const numBtnClicked = (e) => {
 		setInput(e.target.name);
 		setResult(result.concat(e.target.name));
 	}
 
 	const operatorBtnClicked = (e) => {
+
+		// The if statement prevents the operators Symbols from being clicked first or having two operators side by side.
+		if ((operators.includes(e.target.name) && result === '') || (operators.includes(e.target.name) && operators.includes(result.slice(-1))) ) {
+			return;
+		} 
 		setResult(result.concat(e.target.name));
+		
 	}
 
 	const clear = () => {
@@ -53,7 +61,7 @@ const App = () => {
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={numBtnClicked}>3</Button>
 				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={operatorBtnClicked}>&minus;</Button>
 
-				<Button size="lg" className="Calc-Btn" id="decimal" name=".">.</Button>
+				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={operatorBtnClicked}>.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numBtnClicked}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
 				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={operatorBtnClicked}>&#43;</Button>
