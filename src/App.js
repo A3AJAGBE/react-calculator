@@ -15,6 +15,10 @@ const App = () => {
 		setResult(result.concat(e.target.name));
 	}
 
+	const operatorBtnClicked = (e) => {
+		setResult(result.concat(e.target.name));
+	}
+
 	const clear = () => {
 		setInput("0");
 		setResult("");
@@ -37,22 +41,22 @@ const App = () => {
 				<Button size="lg" className="theme-button" id="seven" name="7" onClick={numBtnClicked}>7</Button>
 				<Button size="lg" className="theme-button" id="eight" name="8" onClick={numBtnClicked}>8</Button>
 				<Button size="lg" className="theme-button" id="nine" name="9" onClick={numBtnClicked}>9</Button>
-				<Button size="lg" className="Calc-Btn" id="divide" name="/">&divide;</Button>
+				<Button size="lg" className="Calc-Btn" id="divide" name="/" onClick={operatorBtnClicked}>&divide;</Button>
 
 				<Button size="lg" className="theme-button" id="four" name="4" onClick={numBtnClicked}>4</Button>
 				<Button size="lg" className="theme-button" id="five" name="5" onClick={numBtnClicked}>5</Button>
 				<Button size="lg" className="theme-button" id="six" name="6" onClick={numBtnClicked}>6</Button>
-				<Button size="lg" className="Calc-Btn" id="multiply" name="*">&times;</Button>
+				<Button size="lg" className="Calc-Btn" id="multiply" name="*" onClick={operatorBtnClicked}>&times;</Button>
 
 				<Button size="lg" className="theme-button" id="one" name="1" onClick={numBtnClicked}>1</Button>
 				<Button size="lg" className="theme-button" id="two" name="2" onClick={numBtnClicked}>2</Button>
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={numBtnClicked}>3</Button>
-				<Button size="lg" className="Calc-Btn" id="subtract" name="-">&minus;</Button>
+				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={operatorBtnClicked}>&minus;</Button>
 
 				<Button size="lg" className="Calc-Btn" id="decimal" name=".">.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numBtnClicked}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
-				<Button size="lg" className="Calc-Btn" id="add" name="+">&#43;</Button>
+				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={operatorBtnClicked}>&#43;</Button>
 
 			</Card.Footer>
 		</Card>
