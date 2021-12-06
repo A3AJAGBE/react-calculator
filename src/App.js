@@ -17,8 +17,8 @@ const App = () => {
 		// setCalculations(calculations.concat(e.target.name));
 
 		let inputs = display.concat(e.target.name);
-		setDisplay(inputs.replace(/^0+|0+/,'0'));
-		setCalculations(inputs.replace(/^0+/,'0'));
+		setDisplay(inputs.replace(/^0+/,'') || inputs.replace(/^0{2,}/,'0') );
+		setCalculations(inputs.replace(/^0+/,'') || inputs.replace(/^0{2,}/,'0'));
 	}
 
 	const operatorBtnClicked = (e) => {
