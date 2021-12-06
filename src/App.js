@@ -7,29 +7,34 @@ import Button from 'react-bootstrap/Button';
 
 const App = () => {
 
-	const [result, setResult] = useState("");
-	const [input, setInput] = useState("0");
+	const [calculations, setCalculations] = useState("");
+	const [display, setDisplay] = useState("0");
 
 	const operators = ['/', '*', '+', '-', '.'];
 
 	const numBtnClicked = (e) => {
-		setInput(e.target.name);
-		setResult(result.concat(e.target.name));
+		// setDisplay(calculations.concat(e.target.name));
+		// setCalculations(calculations.concat(e.target.name));
+
+		let inputs = display.concat(e.target.name);
+		setDisplay(inputs.replace(/^0+|0+/,'0'));
+		setCalculations(inputs.replace(/^0+/,'0'));
 	}
 
 	const operatorBtnClicked = (e) => {
 
 		// The if statement prevents the operators Symbols from being clicked first or having two operators side by side.
-		if ((operators.includes(e.target.name) && result === '') || (operators.includes(e.target.name) && operators.includes(result.slice(-1))) ) {
+		if ((operators.includes(e.target.name) && calculations === '') || (operators.includes(e.target.name) && operators.includes(calculations.slice(-1))) ) {
 			return;
 		} 
-		setResult(result.concat(e.target.name));
+		setCalculations(calculations.concat(e.target.name));
+		setDisplay(e.target.name);
 		
 	}
 
 	const clear = () => {
-		setInput("0");
-		setResult("");
+		setDisplay("0");
+		setCalculations("");
 	}
 
   return (
@@ -38,9 +43,9 @@ const App = () => {
 	  	<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
 			<Card.Body className="p-4">
-				<div className="bg-dark text-end pt-3 px-2 pb-1" id="display">
-					<Card.Subtitle className="Calc-result"> {result} </Card.Subtitle>
-					<Card.Title> {input} </Card.Title>
+				<div className="bg-dark text-end pt-3 px-2 pb-1">
+					<Card.Subtitle className="Calc-calculations"> {calculations} </Card.Subtitle>
+					<Card.Title id="display"> {display} </Card.Title>
 				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
