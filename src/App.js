@@ -20,6 +20,18 @@ const Calculator = () => {
 		setDetails("");
 	}
 
+	const operators = ['/', '*', '+', '-'];
+
+	const operatorClicked = (e) => {
+
+		// The if statement prevents the operators Symbols from being clicked first 
+		if (operators.includes(e.target.name) && details === '') {
+			return;
+		} 
+		setDetails(details.concat(e.target.name));
+		setDisplay(e.target.name);
+	}
+
 	return (
 		<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
@@ -35,22 +47,22 @@ const Calculator = () => {
 				<Button size="lg" className="theme-button" id="seven" name="7" onClick={numClicked}>7</Button>
 				<Button size="lg" className="theme-button" id="eight" name="8" onClick={numClicked}>8</Button>
 				<Button size="lg" className="theme-button" id="nine" name="9" onClick={numClicked}>9</Button>
-				<Button size="lg" className="Calc-Btn" id="divide" name="/">&divide;</Button>
+				<Button size="lg" className="Calc-Btn" id="divide" name="/" onClick={operatorClicked}>&divide;</Button>
 
 				<Button size="lg" className="theme-button" id="four" name="4" onClick={numClicked}>4</Button>
 				<Button size="lg" className="theme-button" id="five" name="5" onClick={numClicked}>5</Button>
 				<Button size="lg" className="theme-button" id="six" name="6" onClick={numClicked}>6</Button>
-				<Button size="lg" className="Calc-Btn" id="multiply" name="*">&times;</Button>
+				<Button size="lg" className="Calc-Btn" id="multiply" name="*" onClick={operatorClicked}>&times;</Button>
 
 				<Button size="lg" className="theme-button" id="one" name="1" onClick={numClicked}>1</Button>
 				<Button size="lg" className="theme-button" id="two" name="2" onClick={numClicked}>2</Button>
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={numClicked}>3</Button>
-				<Button size="lg" className="Calc-Btn" id="subtract" name="-">&minus;</Button>
+				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={operatorClicked}>&minus;</Button>
 
 				<Button size="lg" className="Calc-Btn" id="decimal" name=".">.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numClicked}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
-				<Button size="lg" className="Calc-Btn" id="add" name="+">&#43;</Button>
+				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={operatorClicked}>&#43;</Button>
 
 			</Card.Footer>
 		</Card>
