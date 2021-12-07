@@ -32,6 +32,19 @@ const Calculator = () => {
 		setDisplay(e.target.name);
 	}
 
+	const decimalClicked = (e) => {
+		let dot = ".";
+
+		if (((dot.includes(e.target.name) && details === '') || (dot.includes(e.target.name) && dot.includes(details.slice(-1))))) {
+			setDetails("0" + e.target.name);
+			setDisplay("0" + e.target.name);
+
+		} else {
+			setDetails(details.concat(e.target.name));
+			setDisplay(display.concat(e.target.name));
+		}
+	}
+
 	return (
 		<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
@@ -59,7 +72,7 @@ const Calculator = () => {
 				<Button size="lg" className="theme-button" id="three" name="3" onClick={numClicked}>3</Button>
 				<Button size="lg" className="Calc-Btn" id="subtract" name="-" onClick={operatorClicked}>&minus;</Button>
 
-				<Button size="lg" className="Calc-Btn" id="decimal" name=".">.</Button>
+				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={decimalClicked}>.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numClicked}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
 				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={operatorClicked}>&#43;</Button>
