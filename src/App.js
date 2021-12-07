@@ -9,7 +9,12 @@ const Calculator = () => {
 	const [details, setDetails] = useState("");
 	const [display, setDisplay] = useState("0");
 
-	
+	const numClicked = (e) => {
+		let value = e.target.name;
+		setDisplay(display.concat(value).replace(/^0+/,'') || display.concat(value).replace(/^0{2,}/,'0') );
+		setDetails(details.concat(value).replace(/^0+/,'') || details.concat(value).replace(/^0{2,}/,'0'));
+	}
+
 	return (
 		<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
@@ -22,23 +27,23 @@ const Calculator = () => {
 			<Card.Footer className="Calc-Grid p-4">
 				<Button size="lg" id="clear">AC</Button>
 
-				<Button size="lg" className="theme-button" id="seven" name="7" >7</Button>
-				<Button size="lg" className="theme-button" id="eight" name="8" >8</Button>
-				<Button size="lg" className="theme-button" id="nine" name="9" >9</Button>
+				<Button size="lg" className="theme-button" id="seven" name="7" onClick={numClicked}>7</Button>
+				<Button size="lg" className="theme-button" id="eight" name="8" onClick={numClicked}>8</Button>
+				<Button size="lg" className="theme-button" id="nine" name="9" onClick={numClicked}>9</Button>
 				<Button size="lg" className="Calc-Btn" id="divide" name="/">&divide;</Button>
 
-				<Button size="lg" className="theme-button" id="four" name="4" >4</Button>
-				<Button size="lg" className="theme-button" id="five" name="5" >5</Button>
-				<Button size="lg" className="theme-button" id="six" name="6" >6</Button>
+				<Button size="lg" className="theme-button" id="four" name="4" onClick={numClicked}>4</Button>
+				<Button size="lg" className="theme-button" id="five" name="5" onClick={numClicked}>5</Button>
+				<Button size="lg" className="theme-button" id="six" name="6" onClick={numClicked}>6</Button>
 				<Button size="lg" className="Calc-Btn" id="multiply" name="*">&times;</Button>
 
-				<Button size="lg" className="theme-button" id="one" name="1" >1</Button>
-				<Button size="lg" className="theme-button" id="two" name="2" >2</Button>
-				<Button size="lg" className="theme-button" id="three" name="3" >3</Button>
+				<Button size="lg" className="theme-button" id="one" name="1" onClick={numClicked}>1</Button>
+				<Button size="lg" className="theme-button" id="two" name="2" onClick={numClicked}>2</Button>
+				<Button size="lg" className="theme-button" id="three" name="3" onClick={numClicked}>3</Button>
 				<Button size="lg" className="Calc-Btn" id="subtract" name="-">&minus;</Button>
 
 				<Button size="lg" className="Calc-Btn" id="decimal" name=".">.</Button>
-				<Button size="lg" className="theme-button" id="zero" name="0" >0</Button>		
+				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numClicked}>0</Button>		
 				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
 				<Button size="lg" className="Calc-Btn" id="add" name="+">&#43;</Button>
 
