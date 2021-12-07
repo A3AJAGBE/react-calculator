@@ -15,6 +15,11 @@ const Calculator = () => {
 		setDetails(details.concat(value).replace(/^0+/,'') || details.concat(value).replace(/^0{2,}/,'0'));
 	}
 
+	const clear = () => {
+		setDisplay("0");
+		setDetails("");
+	}
+
 	return (
 		<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
@@ -25,7 +30,7 @@ const Calculator = () => {
 				</div>
 			</Card.Body>
 			<Card.Footer className="Calc-Grid p-4">
-				<Button size="lg" id="clear">AC</Button>
+				<Button size="lg" id="clear" onClick={clear}>AC</Button>
 
 				<Button size="lg" className="theme-button" id="seven" name="7" onClick={numClicked}>7</Button>
 				<Button size="lg" className="theme-button" id="eight" name="8" onClick={numClicked}>8</Button>
