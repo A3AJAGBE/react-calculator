@@ -34,15 +34,20 @@ const Calculator = () => {
 
 	const decimalClicked = (e) => {
 		let dot = ".";
+		let value = e.target.name;
 
-		if (((dot.includes(e.target.name) && details === '') || (dot.includes(e.target.name) && dot.includes(details.slice(-1))))) {
-			setDetails("0" + e.target.name);
-			setDisplay("0" + e.target.name);
-
-		} else {
-			setDetails(details.concat(e.target.name));
-			setDisplay(display.concat(e.target.name));
+		if (display.includes(dot) && value === dot) {
+			return;
 		}
+
+		if ((dot === value && details === '')) {
+			setDetails("0" + value);
+			setDisplay("0" + value);
+		} else {
+			setDetails(details.concat(value));
+			setDisplay(display.concat(value));
+		}
+	
 	}
 
 	return (
