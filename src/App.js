@@ -50,6 +50,18 @@ const Calculator = () => {
 	
 	}
 
+	const calculate = (e) => {
+		let equals = "=";
+		let value = e.target.name;
+
+		if ((details === "" && value === equals) || (display.includes(equals) && value === equals) ){
+			return;
+		}
+		setDisplay(value);
+		setDetails(details.concat(value));
+		
+	}
+
 	return (
 		<Card id="Card-Main">
 		  	<Card.Header>/.\</Card.Header>
@@ -79,7 +91,7 @@ const Calculator = () => {
 
 				<Button size="lg" className="Calc-Btn" id="decimal" name="." onClick={decimalClicked}>.</Button>
 				<Button size="lg" className="theme-button" id="zero" name="0" onClick={numClicked}>0</Button>		
-				<Button size="lg" className="Calc-Btn" id="equals" name="=">&#61;</Button>
+				<Button size="lg" className="Calc-Btn" id="equals" name="=" onClick={calculate} >&#61;</Button>
 				<Button size="lg" className="Calc-Btn" id="add" name="+" onClick={operatorClicked}>&#43;</Button>
 
 			</Card.Footer>
