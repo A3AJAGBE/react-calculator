@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { evaluate } from 'mathjs';
 
 const Calculator = () => {
 	const [details, setDetails] = useState("");
@@ -66,9 +67,9 @@ const Calculator = () => {
 		if ((details === "" && value === equals) || (display.includes(equals) && value === equals) ){
 			return;
 		}
-		setDisplay(value);
-		setDetails(details.concat(value));
-		
+	
+		setDetails(details.concat(equals + evaluate(details)));
+		setDisplay(evaluate(details))
 	}
 
 	return (
