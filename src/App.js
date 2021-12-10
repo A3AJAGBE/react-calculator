@@ -34,13 +34,20 @@ const Calculator = () => {
 	const operators = ['/', '*', '+', '-'];
 
 	const operatorClicked = (e) => {
+		// const re = /[+\-*/]{2,}/;
+		let value = e.target.name;
 
-		// The if statement prevents the operators Symbols from being clicked first 
-		if (operators.includes(e.target.name) && details === '') {
+		// The if statement prevents the operators Symbols from being clicked first and prevents the operators being combined to just "0."
+		if ((operators.includes(value && details === '') || (operators.includes(value) && display === '0.'))) {
 			return;
-		} 
-		setDetails(details.concat(e.target.name));
-		setDisplay(e.target.name);
+		} else if (details.includes("=")) {
+			setDetails(details.slice(-1) + value);
+			setDisplay(value);
+		} else {
+			setDetails(details.concat(value));
+			setDisplay(value);
+		}
+		
 	}
 
 	const decimalClicked = (e) => {
