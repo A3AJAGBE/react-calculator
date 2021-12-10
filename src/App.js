@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { evaluate } from 'mathjs';
 
+let calcResult = "";
+
 const Calculator = () => {
 	const [details, setDetails] = useState("");
 	const [display, setDisplay] = useState("0");
@@ -41,13 +43,12 @@ const Calculator = () => {
 		if ((operators.includes(value && details === '') || (operators.includes(value) && display === '0.'))) {
 			return;
 		} else if (details.includes("=")) {
-			setDetails(details.slice(-1) + value);
+			setDetails(calcResult + value);
 			setDisplay(value);
 		} else {
 			setDetails(details.concat(value));
 			setDisplay(value);
 		}
-		
 	}
 
 	const decimalClicked = (e) => {
@@ -71,13 +72,15 @@ const Calculator = () => {
 	const calculate = (e) => {
 		let equals = "=";
 		let value = e.target.name;
+		let result = evaluate(details);
+		calcResult = result;
 
 		if ((details === "" && value === equals) || (display.includes(equals) && value === equals) ){
 			return;
+		} else {
+			setDetails(details.concat(equals + result));
+			setDisplay(result)
 		}
-	
-		setDetails(details.concat(equals + evaluate(details)));
-		setDisplay(evaluate(details))
 	}
 
 	return (
