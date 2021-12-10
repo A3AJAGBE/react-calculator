@@ -17,12 +17,13 @@ const Calculator = () => {
 		if (display.match(regex)) {
 			setDisplay(display.concat(value));
 			setDetails(details.concat(value));
+		} else if (operators.includes(display)) { 
+			setDisplay(value);
+			setDetails(details.concat(value));
 		} else {
-			setDisplay(display.concat(value).replace(/^0+/,'') || display.concat(value).replace(/^0{2,}/,'0') );
+			setDisplay(display.concat(value).replace(/^0+/,'') || display.concat(value).replace(/^0{2,}/,'0'));
 			setDetails(details.concat(value).replace(/^0+/,'') || details.concat(value).replace(/^0{2,}/,'0'));
 		}
-
-		
 	}
 
 	const clear = () => {
