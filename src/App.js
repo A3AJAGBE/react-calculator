@@ -36,19 +36,47 @@ const Calculator = () => {
 	const operators = ['/', '*', '+', '-'];
 
 	const operatorClicked = (e) => {
-		// const re = /[+\-*/]{2,}/;
+		let negRegex = /-?[\d]/;
+
 		let value = e.target.name;
 
-		// The if statement prevents the operators Symbols from being clicked first and prevents the operators being combined to just "0."
-		if ((operators.includes(value && details === '') || (operators.includes(value) && display === '0.'))) {
+		if (((!value.match(/^-/)) && details === '')) {
 			return;
-		} else if (details.includes("=")) {
-			setDetails(calcResult + value);
-			setDisplay(value);
-		} else {
+		}
+
+		if ((details.match(/^-/)) && (!details.match(negRegex)) ) {
+			return;
+		}
+
+		if (operators.includes(value) && display === "0.") {
+			return;
+		}
+
+		let lastChar = details.slice(-1);
+		let lastCharIsOperator =  operators.includes(lastChar);
+
+		let beforeLastChar = details.charAt(details.length - 2);
+		let beforeLastCharIsOperator = operators.includes(beforeLastChar);
+
+		if ((lastCharIsOperator && value !== "-") || (beforeLastCharIsOperator && lastCharIsOperator)) {
+			if (beforeLastCharIsOperator) {
+				const updateVal = `${details.substring(0, details.length - 2)}${value}`;
+				setDetails(updateVal);
+				setDisplay(value);
+			} else {
+				setDetails(`${details.substring(0, details.length - 1)}${value}`);
+				setDisplay(value);
+			}
+		}
+		else {
 			setDetails(details.concat(value));
 			setDisplay(value);
 		}
+				
+		if ((details.includes("="))) {
+			setDetails(calcResult + value);
+			setDisplay(value);
+		} 
 	}
 
 	const decimalClicked = (e) => {
